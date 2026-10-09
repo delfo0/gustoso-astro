@@ -1,0 +1,32 @@
+{
+  "name": "Gustoso",
+  "short_name": "Gustoso",
+  "description": "Distributore di prodotti enogastronomici di alta qualità",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f4f0",
+  "theme_color": "#1a1614",
+  "lang": "it",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+---
+import CatalogLayout from '../layouts/CatalogLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { sanityClient } from '../sanity/client';
+import { mapProduct, PRODUCT_FIELDS } from '../sanity/mappers';
+
+const [raw, maison] = await Promise.all([
+  sanityClient.fetch(`*[_type == "product" && maison->slug.current == "baron-fuente"] | order(sortOrder asc) { ${PRODUCT_FIELDS} }`),
+  sanityClient.fetch(`*[_type == "maison" && slug.current == "baron-fuente"][0] { "logoUrl": logoImage.asset->url, intro }`),
+]);
+const products = raw.map(mapProduct);
+const logoSrc = maison?.logoUrl ?? '/assets/partners/baron-fuente.png';
+---
+
+<CatalogLayout
+  title="Baron Fuenté - Gustoso"
+  description="Il catalogo completo di Baron Fuenté: Champagne storica della Vallée, Pinot Meunier protagonista, cuvée di carattere. Selezionati da Gustoso."
+  brandmarkSrc={logoSrc}
+  brandmarkAlt="Baron Fuenté"
+>
+  <style slot="head">.cat-product-img { background-size: auto 85%; }</style>
+  {products.map((p) => <ProductCard product={p} />)}
+</CatalogLayout>

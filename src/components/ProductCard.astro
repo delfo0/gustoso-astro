@@ -1,0 +1,60 @@
+---
+export interface ProductSpec {
+  label: string;
+  value: string;
+}
+
+export interface Product {
+  img: string;
+  tag: string;
+  name: string;
+  meta: string[];
+  desc: string;
+  overlayDesc: string;
+  specs: ProductSpec[];
+  imgStyle?: 'bottle' | 'default';
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const imgClass = `cat-product-img${product.imgStyle === 'bottle' ? ' cat-product-img--bottle' : ''}`;
+---
+
+<button type="button" class="cat-product"
+  data-img={product.img}
+  data-tag={product.tag}
+  data-name={product.name}
+  data-desc=""
+>
+  <div class={imgClass}>
+    {product.img && <img src={product.img} alt={product.name} loading="lazy" decoding="async" />}
+  </div>
+  <div class="cat-product-info">
+    <span class="cat-product-tag">{product.tag}</span>
+    <h2 class="cat-product-name">{product.name}</h2>
+    <div class="cat-product-meta">
+      {product.meta.map((m) => <span>{m}</span>)}
+    </div>
+    <p class="cat-product-desc">{product.desc}</p>
+  </div>
+  <span class="cat-product-action" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+  </span>
+  <div class="cat-product-overlay" aria-hidden="true">
+    <h3 class="cat-product-overlay-name">{product.name}</h3>
+    <div class="cat-product-overlay-specs">
+      {product.specs.map((s) => (
+        <div class="spec-row"><dt>{s.label}</dt><dd>{s.value}</dd></div>
+      ))}
+    </div>
+    <div class="cat-product-overlay-desc">
+      <p>{product.overlayDesc}</p>
+    </div>
+  </div>
+</button>

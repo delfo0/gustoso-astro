@@ -1,0 +1,197 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+---
+
+<InnerLayout
+  title="Contatti - Gustoso"
+  description="Scrivici per scoprire il catalogo, ricevere informazioni sui prodotti o aprire un listino B2B. Email, telefono e form dedicato."
+  page="contatti"
+>
+
+  <style slot="head">
+    .editorial--no-hero {
+      margin-top: calc(var(--nav-h) + var(--gutter));
+    }
+    @media (max-width: 720px) {
+      .editorial--no-hero {
+        margin-top: calc(var(--nav-h-mobile) - 16px);
+      }
+    }
+    .contact-cell .val a {
+      color: inherit; text-decoration: underline;
+      text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .3s;
+    }
+    .contact-cell .val a:hover { color: var(--terracotta); }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      margin-top: 64px;
+    }
+    .contact-cell { padding: 48px 36px; border-right: 1px solid var(--line); }
+    .contact-cell:last-child { border-right: none; }
+    .contact-cell .lbl { font-size: 11px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 18px; }
+    .contact-cell .val { font-family: var(--display); font-size: 22px; font-weight: 500; letter-spacing: -0.014em; line-height: 1.3; color: var(--ink); }
+    .contact-cell .val em { color: var(--terracotta); font-style: italic; }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr !important; }
+      .contact-cell { border-right: none; border-bottom: 1px solid var(--line); padding: 36px 28px; }
+      .contact-cell:last-child { border-bottom: none; }
+    }
+    @media (max-width: 600px) {
+      .contact-cell { padding: 28px 20px; }
+      .contact-cell .val { font-size: 18px; }
+    }
+    .form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 28px; margin-top: 56px; }
+    .form .field { display: flex; flex-direction: column; gap: 10px; }
+    .form .field.full { grid-column: 1 / -1; }
+    .form label { font-size: 11px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--ink-muted); }
+    .form input, .form textarea, .form select {
+      font-family: var(--sans); font-size: 15px; padding: 16px 18px;
+      border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+      background: var(--cream); color: var(--ink);
+      transition: border-color .3s, box-shadow .3s; width: 100%;
+    }
+    .form textarea { resize: vertical; min-height: 140px; line-height: 1.55; }
+    .form input:focus, .form textarea:focus, .form select:focus {
+      outline: none; border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(218,123,92,.15);
+    }
+    .form .form-foot {
+      grid-column: 1 / -1; display: flex; justify-content: space-between;
+      align-items: center; gap: 24px; flex-wrap: wrap;
+      margin-top: 16px; padding-top: 28px; border-top: 1px solid var(--line);
+    }
+    .form .form-note { font-size: 12px; color: var(--ink-muted); max-width: 48ch; }
+    @media (max-width: 720px) { .form { grid-template-columns: 1fr; gap: 18px; } }
+  </style>
+
+  <section class="editorial editorial--no-hero">
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">Contatti</div>
+            <h1 class="title">Parla con <em>noi</em>.</h1>
+          </div>
+          <div class="contact-grid reveal">
+            <div class="contact-cell">
+              <div class="lbl">Email</div>
+              <div class="val"><a href="mailto:hello@gustoso.shop">hello@<em>gustoso.shop</em></a></div>
+            </div>
+            <div class="contact-cell">
+              <div class="lbl">Telefono</div>
+              <div class="val"><a href="tel:+39[NUMERO]">+39 <em>[NUMERO]</em></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner--narrow">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">Scrivici</div>
+            <h2 class="title">Compila il <em>form</em>.</h2>
+          </div>
+          <form class="form reveal" id="contact-form" autocomplete="on">
+            <div class="field">
+              <label for="f-nome">Nome &amp; cognome</label>
+              <input id="f-nome" name="nome" type="text" required autocomplete="name" placeholder="Mario Rossi" />
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="mario@ristorante.it" />
+            </div>
+            <div class="field">
+              <label for="f-azienda">Azienda / locale</label>
+              <input id="f-azienda" name="azienda" type="text" placeholder="Trattoria Da Mario" />
+            </div>
+            <div class="field">
+              <label for="f-topic">Di cosa vuoi parlarci</label>
+              <select id="f-topic" name="argomento" required>
+                <option value="" disabled selected></option>
+                <option>Catalogo e selezione</option>
+                <option>Informazioni su un prodotto</option>
+                <option>Apertura listino B2B</option>
+                <option>Gin personalizzato</option>
+                <option>Confezioni e packaging</option>
+                <option>Sono un privato</option>
+                <option>Altro</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="f-msg">Il tuo messaggio</label>
+              <textarea id="f-msg" name="messaggio" required placeholder="Raccontaci cosa stai cercando: un'idea, un'occasione, una richiesta di catalogo…"></textarea>
+            </div>
+            <div class="form-foot">
+              <p class="form-note">Inviando il form accetti i nostri <a href="#" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">termini e condizioni</a>.</p>
+              <button type="submit" class="cta cta--filled btn-submit" id="contact-submit">
+                <span class="btn-text">Invia il messaggio <span class="arrow">&rarr;</span></span>
+                <span class="gst-loader-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+              </button>
+            </div>
+          </form>
+          <p id="contact-success" tabindex="-1" aria-live="polite" role="status" style="display:none; font-family:var(--display); font-style:italic; color:var(--terracotta); font-size:18px; margin-top:32px;">
+            Grazie. Ti rispondiamo entro due giorni lavorativi.
+          </p>
+          <p id="contact-error" aria-live="polite" role="alert" style="display:none; font-size:13px; color:var(--terracotta); margin-top:16px; text-align:center;">
+            Si è verificato un errore. Riprova.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script slot="scripts" is:inline>
+  (function() {
+    var contactForm = document.getElementById('contact-form');
+    if (!contactForm) return;
+    var contactSubmit = document.getElementById('contact-submit');
+    var contactSuccess = document.getElementById('contact-success');
+    var contactError = document.getElementById('contact-error');
+    var ENDPOINT = 'https://docs.google.com/forms/d/e/1FAIpQLSdWqAxH1aWpjGFSpDVTz23tVnSD5YFqmD9jPWfgq_944wO1eA/formResponse';
+    var FIELDS = {
+      nome:      'entry.823153146',
+      email:     'entry.458629127',
+      azienda:   'entry.1203398274',
+      argomento: 'entry.994034557',
+      messaggio: 'entry.696242004'
+    };
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      contactError.style.display = 'none';
+      contactSubmit.disabled = true;
+      contactSubmit.classList.add('is-loading');
+      var fd = new FormData();
+      Object.keys(FIELDS).forEach(function(key) {
+        var el = contactForm.elements[key];
+        if (el) fd.append(FIELDS[key], el.value);
+      });
+      fetch(ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors' })
+        .then(function() {
+          contactForm.style.display = 'none';
+          contactSuccess.style.display = 'block';
+          contactSuccess.focus();
+        })
+        .catch(function() {
+          contactSubmit.disabled = false;
+          contactSubmit.classList.remove('is-loading');
+          contactError.style.display = 'block';
+        });
+    });
+    var ta = document.getElementById('f-msg');
+    if (ta) {
+      ta.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+          if (contactForm.requestSubmit) contactForm.requestSubmit();
+          else contactForm.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+        }
+      });
+    }
+  })();
+  </script>
+
+</InnerLayout>

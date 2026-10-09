@@ -1,0 +1,22 @@
+---
+import CatalogLayout from '../layouts/CatalogLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { sanityClient } from '../sanity/client';
+import { mapProduct, PRODUCT_FIELDS } from '../sanity/mappers';
+
+const [raw, maison] = await Promise.all([
+  sanityClient.fetch(`*[_type == "product" && maison->slug.current == "marcoult"] | order(sortOrder asc) { ${PRODUCT_FIELDS} }`),
+  sanityClient.fetch(`*[_type == "maison" && slug.current == "marcoult"][0] { "logoUrl": logoImage.asset->url, intro }`),
+]);
+const products = raw.map(mapProduct);
+const logoSrc = maison?.logoUrl ?? '/assets/partners/marcoult.svg';
+---
+
+<CatalogLayout
+  title="M. Marcoult - Gustoso"
+  description="Il catalogo completo di M. Marcoult: Champagne di famiglia dal Sézannais, dosaggi misurati, terroir selezionato. Selezionati da Gustoso."
+  brandmarkSrc={logoSrc}
+  brandmarkAlt="M. Marcoult"
+>
+  {products.map((p) => <ProductCard product={p} />)}
+</CatalogLayout>

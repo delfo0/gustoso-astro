@@ -1,0 +1,84 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+---
+
+<InnerLayout
+  title="Errore del server — Gustoso"
+  description="Si è verificato un errore. Riprova tra qualche istante o torna alla home."
+  page="500"
+  navTone=""
+>
+  <section class="error-page">
+    <div class="error-inner">
+      <div class="error-eyebrow">Errore 500</div>
+      <h1 class="error-h1">Qualcosa è andato <em>storto</em>.</h1>
+      <p class="error-lede">Stiamo già lavorando per risolverlo. Riprova tra qualche istante, oppure scrivici se il problema persiste.</p>
+      <div class="error-ctas">
+        <a class="cta cta--filled" href="/">Torna alla home <span class="arrow">&rarr;</span></a>
+        <a class="cta cta--ghost-dark" href="/contatti">Segnala il problema <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+</InnerLayout>
+
+<style>
+  .error-page {
+    min-height: calc(100vh - var(--nav-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--nav-h) + 60px) var(--gutter) 80px;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  @media (max-width: 720px) {
+    .error-page { padding: calc(var(--nav-h-mobile) + 40px) var(--gutter-mobile) 56px; }
+  }
+  .error-inner { max-width: 720px; width: 100%; text-align: left; }
+  .error-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .error-eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .error-h1 {
+    font-family: var(--display);
+    font-size: clamp(44px, 6.4vw, 96px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: .98;
+    color: var(--ink);
+    margin: 28px 0 0;
+    max-width: 14ch;
+  }
+  .error-h1 em { color: var(--terracotta); font-style: italic; font-weight: 600; }
+  .error-lede {
+    font-family: var(--sans);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin: 28px 0 0;
+    max-width: 56ch;
+  }
+  .error-ctas {
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 720px) {
+    .error-ctas { gap: 10px; margin-top: 28px; }
+    .error-ctas :global(.cta) { padding: 12px 18px; font-size: 10px; letter-spacing: .16em; }
+  }
+</style>

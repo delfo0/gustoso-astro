@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string;
+  eyebrow?: string;
+  title: string;
+  ariaLabel?: string;
+}
+const { href, eyebrow = 'Il catalogo', title, ariaLabel } = Astro.props;
+---
+
+<a
+  class="catalog-card reveal"
+  id="catalog-card"
+  href={href}
+  data-h="banner"
+  data-cta="pill"
+  aria-label={ariaLabel}
+>
+  <div class="catalog-card-inner">
+    <div class="catalog-card-text">
+      <div class="eyebrow">{eyebrow}</div>
+      <h2 class="catalog-card-title" set:html={title}></h2>
+    </div>
+    <div class="catalog-card-cta-wrap">
+      <span class="catalog-card-cta-label">Apri il catalogo <span class="arrow">&rarr;</span></span>
+      <span class="catalog-card-arrow" aria-hidden="true"><span class="arrow">&rarr;</span></span>
+    </div>
+  </div>
+</a>

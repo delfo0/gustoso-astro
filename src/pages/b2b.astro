@@ -1,0 +1,112 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<InnerLayout
+  title="Fornitura B2B - Gustoso"
+  description="Vini, champagne, gin e fine food per ristoranti, hotel, wine bar e rivenditori. Listini dedicati, un solo consulente, supporto continuativo."
+  page="b2b"
+>
+
+  <InnerHero
+    image="/assets/b2b-hero.jpg"
+    eyebrow="B2B · HoReCa"
+    title="Listini, consegna<br/>e <em>consulenza</em><br/>dedicata."
+  />
+
+  <section class="editorial">
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">Come lavoriamo</div>
+            <h2 class="title">Tre elementi che fanno<br/>la <em>differenza</em>.</h2>
+          </div>
+          <div class="cards-3 reveal-stagger">
+            <article class="feat-card">
+              <div class="n">N&deg;01</div>
+              <h3>Listini dedicati</h3>
+              <p>Costruiamo il listino sulle tue esigenze e lo manteniamo stabile nel tempo.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;02</div>
+              <h3>Consegna puntuale</h3>
+              <p>Consegne nei tempi giusti, gestite con cura dall&rsquo;inizio alla fine.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;03</div>
+              <h3>Consulente personale</h3>
+              <p>Una sola persona di riferimento, dall&rsquo;inizio alla fornitura ricorrente. Capisce le tue esigenze e ti accompagna passo dopo passo.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream-warm">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">A chi è dedicato</div>
+            <h2 class="title">Per chi lavora ogni giorno<br/>con la <em>qualità</em>.</h2>
+          </div>
+          <div class="cards-4 reveal-stagger" style="margin-top: 56px;">
+            <article class="feat-card" style="padding: 36px 28px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Ristorazione</h3>
+              <p style="font-size: 14px;">Trattorie, bistrot, fine dining. Una fornitura completa per la sala e per la cucina.</p>
+            </article>
+            <article class="feat-card" style="padding: 36px 28px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Hotel e resort</h3>
+              <p style="font-size: 14px;">Per la sala, le camere e gli eventi. Vini, fine food e prodotti personalizzati, su misura per strutture ricettive.</p>
+            </article>
+            <article class="feat-card" style="padding: 36px 28px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Wine e cocktail bar</h3>
+              <p style="font-size: 14px;">Vini per la mescita, gin per i tuoi cocktail. Una selezione dedicata per il tuo locale.</p>
+            </article>
+            <article class="feat-card" style="padding: 36px 28px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Rivenditori</h3>
+              <p style="font-size: 14px;">Enoteche, gastronomie e retail premium. Forniture continue e materiali per il punto vendita.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--ink">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow">Come funziona</div>
+            <h2 class="title">Cominciare è <em>semplice</em>.</h2>
+          </div>
+          <div class="steps reveal-stagger">
+            <div class="step"><h4>Richiesta</h4><p>Compila il form B2B con i dati della tua attività. Un consulente ti contatterà entro 2 giorni lavorativi.</p></div>
+            <div class="step"><h4>Conoscenza</h4><p>Ti facciamo conoscere il catalogo, le maison e la logistica. Pianifichiamo insieme la fornitura giusta per te.</p></div>
+            <div class="step"><h4>Operativi</h4><p>Iniziamo a lavorare insieme. Hai un listino dedicato, una persona di riferimento, e tutto quello che serve.</p></div>
+          </div>
+          <div class="reveal" style="margin-top: 64px; text-align: center;">
+            <a href="#richiedi" class="cta cta--filled">Compila il form B2B <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream-warm" id="richiedi">
+      <div class="panel-pad cta-panel">
+        <div class="cta-panel-inner">
+          <div class="eyebrow" style="color: var(--terracotta);">Apri un account</div>
+          <h2 class="cta-panel-title">Inizia da <em>qui</em>.</h2>
+          <p class="cta-panel-lede">Compila il form B2B nella pagina contatti, oppure mandaci una mail.</p>
+          <div class="cta-panel-actions">
+            <a href="/contatti" class="cta cta--filled">Richiedi listino B2B <span class="arrow">&rarr;</span></a>
+            <a href="/contatti" class="cta cta--ghost-dark">Contatti <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</InnerLayout>

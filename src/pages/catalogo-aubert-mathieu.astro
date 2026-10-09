@@ -1,0 +1,24 @@
+---
+import CatalogLayout from '../layouts/CatalogLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { sanityClient } from '../sanity/client';
+import { mapProduct, PRODUCT_FIELDS } from '../sanity/mappers';
+
+const [raw, maison] = await Promise.all([
+  sanityClient.fetch(`*[_type == "product" && maison->slug.current == "aubert-mathieu"] | order(sortOrder asc) { ${PRODUCT_FIELDS} }`),
+  sanityClient.fetch(`*[_type == "maison" && slug.current == "aubert-mathieu"][0] { "logoUrl": logoImage.asset->url, intro }`),
+]);
+const products = raw.map(mapProduct);
+const logoSrc = maison?.logoUrl ?? '/assets/partners/aubert-mathieu.webp';
+---
+
+<CatalogLayout
+  title="Aubert & Mathieu - Gustoso"
+  description="Il catalogo completo di Aubert & Mathieu: vini biologici del Languedoc-Roussillon. Selezionati da Gustoso."
+  brandmarkSrc={logoSrc}
+  brandmarkAlt="Aubert & Mathieu"
+>
+  {products.map((product) => (
+    <ProductCard product={product} />
+  ))}
+</CatalogLayout>

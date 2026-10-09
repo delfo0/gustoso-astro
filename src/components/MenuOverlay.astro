@@ -1,0 +1,34 @@
+---
+---
+
+<div class="menu-overlay" id="menu-overlay" role="dialog" aria-label="Menu principale" aria-hidden="true">
+  <div class="menu-backdrop" id="menu-backdrop"></div>
+  <div class="menu-panel">
+    <div class="menu-header">
+      <button
+        class="menu-close"
+        id="menu-close"
+        aria-label="Chiudi menu"
+        onclick="var m=document.getElementById('menu-overlay');if(m){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');}var b=document.getElementById('nav-burger');if(b)b.setAttribute('aria-expanded','false');document.body.classList.remove('menu-lock');"
+      ></button>
+    </div>
+    <div class="menu-body">
+      <ul class="menu-nav-primary">
+        <li style="--i:0"><a href="/">Home</a></li>
+        <li style="--i:1"><a href="#vini-overlay" data-open-vini>Vini e Champagne</a></li>
+        <li style="--i:2"><a href="/gin">Gin Personalizzato</a></li>
+        <li style="--i:3"><a href="/fine-food">Fine Food</a></li>
+        <li style="--i:4"><a href="#waitlist" data-open-waitlist>Prodotti Personalizzati</a></li>
+      </ul>
+      <div class="menu-sep"></div>
+      <div class="menu-group">
+        <div class="menu-section-label">Azienda</div>
+        <ul class="menu-nav-secondary">
+          <li style="--i:0"><a href="/chi-siamo">Chi siamo</a></li>
+          <li style="--i:1"><a href="/b2b">B2B / HoReCa</a></li>
+          <li style="--i:2"><a href="/contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

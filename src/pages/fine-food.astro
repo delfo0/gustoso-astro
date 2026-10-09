@@ -1,0 +1,100 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import InnerHero from '../components/InnerHero.astro';
+import CatalogCard from '../components/CatalogCard.astro';
+---
+
+<InnerLayout
+  title="Fine Food - Gustoso"
+  description="Caviale, jamón di lunga stagionatura, aceti balsamici d'autore. Una selezione corta e curata per la ristorazione e per chi cerca prodotti di alta qualità."
+  page="fine-food"
+>
+
+  <InnerHero
+    image="/assets/img-tavola-hero.jpg"
+    eyebrow="Selezione gastronomica"
+    title="Fine <em>food</em>,<br/>scelto con cura."
+  />
+
+  <CatalogCard
+    href="/catalogo-fine-food"
+    title="Sfoglia la selezione <em>gastronomica</em>."
+    ariaLabel="Sfoglia il catalogo fine food"
+  />
+
+  <section class="editorial">
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">Categorie</div>
+            <h2 class="title">Quello che<br/>selezioniamo <em>per te</em>.</h2>
+          </div>
+          <div class="cards-3 reveal-stagger" style="margin-top: 56px;">
+            <article class="feat-card" style="padding: 0; overflow: hidden; border-top: none; border: 1px solid var(--line);">
+              <div class="img-slot has-image" style="background-image: url('/assets/caviale.webp'); background-size: cover; background-position: center; background-color: var(--cream-deep); aspect-ratio: 4/3;"></div>
+              <div style="padding: 26px 26px 30px;">
+                <div class="n" style="margin-bottom: 12px;">N&deg;01</div>
+                <h3>Caviale</h3>
+                <p>Caviale francese di Saint-Sulpice. Selezione attenta, lavorazione tradizionale e un sapore unico che resta in bocca.</p>
+              </div>
+            </article>
+            <article class="feat-card" style="padding: 0; overflow: hidden; border-top: none; border: 1px solid var(--line);">
+              <div class="img-slot has-image" style="background-image: url('/assets/jamon.jpg'); background-size: cover; background-position: center 40%; aspect-ratio: 4/3;"></div>
+              <div style="padding: 26px 26px 30px;">
+                <div class="n" style="margin-bottom: 12px;">N&deg;02</div>
+                <h3>Jamón</h3>
+                <p>Prosciutti spagnoli di lunga stagionatura. Tagli pregiati e allevamento controllato. Il profilo aromatico si sente al primo morso.</p>
+              </div>
+            </article>
+            <article class="feat-card" style="padding: 0; overflow: hidden; border-top: none; border: 1px solid var(--line);">
+              <div class="img-slot has-image" style="background-image: url('/assets/aceto.jpg'); background-size: cover; background-position: center 55%; aspect-ratio: 4/3;"></div>
+              <div style="padding: 26px 26px 30px;">
+                <div class="n" style="margin-bottom: 12px;">N&deg;03</div>
+                <h3>Aceto</h3>
+                <p>Balsamici tradizionali e aceti d&rsquo;autore. Lunghe invecchiature in legni nobili. Bastano poche gocce per cambiare il sapore di un piatto.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream-warm">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">Come scegliamo</div>
+            <h2 style="font-family: var(--display); font-size: clamp(32px, 4vw, 56px); font-weight: 600; letter-spacing: -0.022em; line-height: 1.05; margin-top: 22px;">
+              Prima di entrare in catalogo,<br/>li proviamo <em style="color: var(--terracotta); font-style: italic;">uno per uno</em>.
+            </h2>
+            <div class="prose" style="margin-top: 32px;">
+              <p>Scegliamo pochi prodotti, e li scegliamo bene. Preferiamo una <em>lista corta</em> a un magazzino pieno: ogni articolo che entra in catalogo l&rsquo;abbiamo provato, valutato, e ci ha davvero convinto.</p>
+              <p><strong>La qualità di un piatto si vede nei dettagli</strong>, e i dettagli iniziano dagli ingredienti.</p>
+            </div>
+          </div>
+          <div class="reveal" style="--rd:200ms; margin-top: 40px;">
+            <div class="img-slot has-image" style="background-image: url('/assets/come-scegliamo.jpg'); aspect-ratio: 24/9; border-radius: var(--r-md); width: 100%; background-position: center top; background-size: cover;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad cta-panel">
+        <div class="cta-panel-inner">
+          <div class="eyebrow" style="color: var(--terracotta);">Il catalogo</div>
+          <h2 class="cta-panel-title">Vuoi <em>scoprire</em> la selezione?</h2>
+          <p class="cta-panel-lede">Nel catalogo trovi tutta la nostra selezione di fine food.<br/>Per consigli su misura o per una fornitura dedicata, contattaci.</p>
+          <div class="cta-panel-actions">
+            <a href="/catalogo-fine-food" class="cta cta--filled">Apri il catalogo <span class="arrow">&rarr;</span></a>
+            <a href="/b2b" class="cta cta--ghost-dark">Per i professionisti <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</InnerLayout>

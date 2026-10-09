@@ -1,0 +1,26 @@
+---
+import CatalogLayout from '../layouts/CatalogLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { sanityClient } from '../sanity/client';
+import { mapProduct, PRODUCT_FIELDS } from '../sanity/mappers';
+
+const [raw, maison] = await Promise.all([
+  sanityClient.fetch(`*[_type == "product" && category == "fine-food"] | order(sortOrder asc) { ${PRODUCT_FIELDS} }`),
+  sanityClient.fetch(`*[_type == "maison" && slug.current == "sturia"][0] { "logoUrl": logoImage.asset->url }`),
+]);
+const products = raw.map(mapProduct);
+const logoSrc = maison?.logoUrl ?? '/assets/partners/sturia.webp';
+---
+
+<CatalogLayout
+  title="Fine Food - Gustoso"
+  description="Caviale Sturia, jamón di lunga stagionatura, aceti balsamici d'autore. La selezione gastronomica completa di Gustoso."
+  brandmarkSrc={logoSrc}
+  brandmarkAlt="Sturia"
+>
+  <style slot="head">
+    .cat-product-name { max-width: none; }
+    .cat-product-img { background-position: center center; }
+  </style>
+  {products.map((p) => <ProductCard product={p} />)}
+</CatalogLayout>

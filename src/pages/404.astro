@@ -1,0 +1,142 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+---
+
+<InnerLayout
+  title="Pagina non trovata — Gustoso"
+  description="La pagina che cercavi non esiste o è stata spostata. Torna alla home oppure esplora il catalogo Gustoso."
+  page="404"
+  navTone=""
+>
+  <section class="error-page">
+    <div class="error-inner">
+      <div class="error-eyebrow">Errore 404</div>
+      <h1 class="error-h1">Questa pagina <em>non esiste</em>.</h1>
+      <p class="error-lede">Il link potrebbe essere obsoleto oppure abbiamo spostato la pagina. Da qui puoi tornare alla home, esplorare il catalogo o scriverci.</p>
+      <div class="error-ctas">
+        <a class="cta cta--filled" href="/">Torna alla home <span class="arrow">&rarr;</span></a>
+        <a class="cta cta--ghost-dark" href="/catalogo-marcoult">Esplora il catalogo <span class="arrow">&rarr;</span></a>
+        <a class="cta cta--ghost-dark" href="/contatti">Scrivici <span class="arrow">&rarr;</span></a>
+      </div>
+      <div class="error-links">
+        <span class="error-links-lbl">Pagine principali</span>
+        <ul>
+          <li><a href="/gin">Gin personalizzato</a></li>
+          <li><a href="/fine-food">Fine Food</a></li>
+          <li><a href="/b2b">B2B / HoReCa</a></li>
+          <li><a href="/chi-siamo">Chi siamo</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</InnerLayout>
+
+<style>
+  .error-page {
+    min-height: calc(100vh - var(--nav-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--nav-h) + 60px) var(--gutter) 80px;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  @media (max-width: 720px) {
+    .error-page { padding: calc(var(--nav-h-mobile) + 40px) var(--gutter-mobile) 56px; }
+  }
+  .error-inner {
+    max-width: 720px;
+    width: 100%;
+    text-align: left;
+  }
+  .error-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .error-eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--terracotta);
+  }
+  .error-h1 {
+    font-family: var(--display);
+    font-size: clamp(44px, 6.4vw, 96px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: .98;
+    color: var(--ink);
+    margin: 28px 0 0;
+    max-width: 14ch;
+  }
+  .error-h1 em {
+    color: var(--terracotta);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .error-lede {
+    font-family: var(--sans);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin: 28px 0 0;
+    max-width: 56ch;
+  }
+  .error-ctas {
+    margin-top: 40px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 720px) {
+    .error-ctas { gap: 10px; margin-top: 28px; }
+    .error-ctas :global(.cta) { padding: 12px 18px; font-size: 10px; letter-spacing: .16em; }
+  }
+  .error-links {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .error-links-lbl {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .error-links ul {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .error-links a {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 2px;
+    transition: color .25s ease, border-color .25s ease;
+  }
+  .error-links a:hover {
+    color: var(--terracotta);
+    border-bottom-color: var(--terracotta);
+  }
+  @media (max-width: 720px) {
+    .error-links { margin-top: 40px; padding-top: 24px; }
+    .error-links ul { gap: 18px 24px; }
+    .error-links a { font-size: 13px; }
+  }
+</style>

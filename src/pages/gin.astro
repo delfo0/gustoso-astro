@@ -1,0 +1,130 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import InnerHero from '../components/InnerHero.astro';
+import CatalogCard from '../components/CatalogCard.astro';
+---
+
+<InnerLayout
+  title="Gin personalizzato - Gustoso"
+  description="Gin personalizzato in piccoli lotti: 15 botaniche, 70cl · 43% vol, etichetta su misura applicata a mano. Per eventi, locali e regali aziendali."
+  page="gin"
+>
+
+  <InnerHero
+    image="/assets/img-gin-hero.jpg"
+    eyebrow="Distillato artigianale"
+    title="Il tuo gin.<br/><em>La tua firma</em>."
+  />
+
+  <CatalogCard
+    href="/catalogo-gin"
+    title="Sfoglia le ricette e i formati <em>disponibili</em>."
+    ariaLabel="Sfoglia il catalogo gin"
+  />
+
+  <section class="editorial">
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">La selezione</div>
+            <h2 class="title">Un gin costruito attorno al <em>tuo gusto</em>.</h2>
+          </div>
+          <div class="cards-3 reveal-stagger">
+            <article class="feat-card">
+              <div class="n">N&deg;01</div>
+              <h3>Botaniche selezionate</h3>
+              <p>Quindici botaniche fra cui ginepro dei Balcani, limone, lime, radice di liquirizia e zenzero. Distillate a contatto diretto in alambicco per un profilo morbido e deciso.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;02</div>
+              <h3>La tua etichetta</h3>
+              <p>Carichi il tuo design, il tuo logo, il tuo messaggio. Stampiamo e applichiamo l&rsquo;etichetta a mano su ogni bottiglia.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;03</div>
+              <h3>Piccoli lotti</h3>
+              <p>Produciamo in piccoli lotti per mantenere la qualità costante. È la scelta giusta per eventi privati, locali, regali aziendali e occasioni speciali.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--ink">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow">Il processo</div>
+            <h2 class="title">Come nasce<br/><em>il tuo gin</em>.</h2>
+          </div>
+          <div class="steps reveal-stagger">
+            <div class="step">
+              <h4>Scegli la ricetta</h4>
+              <p>Ti guidiamo nella scelta del profilo aromatico: fresco e floreale, speziato e legnoso, o intenso e mediterraneo. Ogni variante nasce su una base premium da 43% vol.</p>
+            </div>
+            <div class="step">
+              <h4>Manda il design</h4>
+              <p>Inviaci il tuo artwork in alta risoluzione. Verifichiamo stampa e vestizione prima di mandare in produzione, e se serve ti facciamo vedere un&rsquo;anteprima.</p>
+            </div>
+            <div class="step">
+              <h4>Ricevi le bottiglie</h4>
+              <p>Le bottiglie vengono prodotte, etichettate e imballate a mano. Spediamo in tutta Italia: i tempi te li confermiamo nel preventivo, in base al numero di pezzi e alla complessità dell&rsquo;etichetta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream-warm">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="split-2">
+            <div class="reveal">
+              <div class="eyebrow" style="color: var(--terracotta);">Scheda tecnica</div>
+              <h2 style="font-family: var(--display); font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -0.022em; line-height: 1.05; margin-top: 22px;">Dati e dettagli.</h2>
+              <p class="lede" style="margin-top: 28px;">Volume, gradazione e botaniche: i numeri essenziali del nostro gin.<br/>Se vuoi saperne di più sulla ricetta, sulla distillazione o sui formati, contattaci.</p>
+              <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: nowrap;">
+                <a class="cta cta--filled" style="padding: 12px 18px; font-size: 11px; letter-spacing: .18em; white-space: nowrap;" href="/catalogo-gin">Apri il catalogo <span class="arrow">&rarr;</span></a>
+                <a class="cta cta--ghost-dark" style="padding: 12px 18px; font-size: 11px; letter-spacing: .18em; white-space: nowrap;" href="/contatti">Richiedi preventivo <span class="arrow">&rarr;</span></a>
+              </div>
+            </div>
+            <div class="reveal" style="--rd:200ms; display: flex; align-items: center;">
+              <div class="specs" style="grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; align-items: stretch; width: 100%;">
+                <div class="spec" style="border-right: 1px solid var(--line); padding: 80px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+                  <div class="spec-n" style="display: inline-flex; align-items: baseline; gap: 4px;">70<span style="font-size:.45em;opacity:.7;letter-spacing:.05em;">cl</span></div>
+                  <div class="spec-l" style="margin: 0;">Volume</div>
+                </div>
+                <div class="spec" style="border-right: 1px solid var(--line); padding: 80px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+                  <div class="spec-n" style="display: inline-flex; align-items: baseline; gap: 4px;">43<span style="font-size:.45em;opacity:.7;letter-spacing:.05em;">%</span></div>
+                  <div class="spec-l" style="margin: 0;">Gradazione</div>
+                </div>
+                <div class="spec" style="padding: 80px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+                  <div class="spec-n">15</div>
+                  <div class="spec-l" style="margin: 0;">Botaniche</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad cta-panel">
+        <div class="cta-panel-inner">
+          <div class="eyebrow" style="color: var(--terracotta);">Inizia subito</div>
+          <h2 class="cta-panel-title">Porta il tuo brand sulla <em>bottiglia giusta</em>.</h2>
+          <p class="cta-panel-lede">Raccontaci l&rsquo;occasione, il numero di bottiglie e l&rsquo;idea per l&rsquo;etichetta.<br/>Ti risponderemo con un preventivo dedicato.</p>
+          <div class="cta-panel-actions">
+            <a href="/contatti" class="cta cta--filled">Richiedi preventivo <span class="arrow">&rarr;</span></a>
+            <a href="/" class="cta cta--ghost-dark"><span class="arrow">&larr;</span> Torna alla home</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</InnerLayout>

@@ -1,0 +1,24 @@
+---
+interface Props {
+  image: string;
+  imageAlt?: string;
+  eyebrow: string;
+  title: string;
+}
+const { image, imageAlt = '', eyebrow, title } = Astro.props;
+---
+
+<section class="inner-hero" style="min-height: 0 !important; height: 420px !important; max-height: 420px !important;">
+  <div
+    class="inner-hero-img"
+    style={`background-image: url('${image}');`}
+    role="img"
+    aria-label={imageAlt || undefined}
+    aria-hidden={imageAlt ? undefined : 'true'}
+  ></div>
+  <div class="inner-hero-overlay" aria-hidden="true"></div>
+  <div class="inner-hero-body" style="justify-content: center;">
+    <div class="eyebrow reveal">{eyebrow}</div>
+    <h1 class="inner-hero-h1 reveal" style="--rd:120ms;" set:html={title}></h1>
+  </div>
+</section>

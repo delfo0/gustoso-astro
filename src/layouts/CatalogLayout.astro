@@ -1,0 +1,105 @@
+---
+import Nav from '../components/Nav.astro';
+import MenuOverlay from '../components/MenuOverlay.astro';
+import Footer from '../components/Footer.astro';
+import ViniOverlay from '../components/ViniOverlay.astro';
+import WaitlistModal from '../components/WaitlistModal.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  brandmarkSrc?: string;
+  brandmarkAlt?: string;
+}
+
+const { title, description, brandmarkSrc, brandmarkAlt = '' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site!).href;
+const ogImg = new URL('/assets/og-default.jpg', Astro.site!).href;
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Gustoso",
+  "url": "https://gustososhop.it",
+  "logo": "https://gustososhop.it/assets/logo-footer.svg",
+  "sameAs": []
+});
+---
+
+<!doctype html>
+<html lang="it">
+<head>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-QHMX24V6E2"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QHMX24V6E2');
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gustoso" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImg} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={ogImg} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1a1614" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/loaders.css" />
+  <slot name="head" />
+  <script type="application/ld+json" set:html={jsonLd} />
+</head>
+<body class="cat-page" data-page="catalogo">
+
+  <Nav tone="dark" />
+  <MenuOverlay />
+
+  <main class="cat-wrap">
+    <h1 class="sr-only">{title}</h1>
+    {brandmarkSrc && (
+      <div class="cat-brandmark">
+        <img src={brandmarkSrc} alt={brandmarkAlt} />
+      </div>
+    )}
+    <div class="cat-list">
+      <slot />
+    </div>
+  </main>
+
+  <Footer />
+  <ViniOverlay />
+  <WaitlistModal />
+
+  <div class="cat-popup" id="cat-popup" aria-hidden="true" role="dialog">
+    <div class="cat-popup-backdrop" id="cat-popup-backdrop"></div>
+    <div class="cat-popup-card" role="document">
+      <button class="cat-popup-close" id="cat-popup-close" type="button" aria-label="Chiudi"></button>
+      <div class="cat-popup-img" id="cat-popup-img"></div>
+      <div class="cat-popup-body">
+        <h2 class="cat-popup-name" id="cat-popup-name"></h2>
+        <div class="cat-popup-specs" id="cat-popup-specs" hidden></div>
+        <div class="cat-popup-desc" id="cat-popup-desc"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>import '../scripts/search';</script>
+  <script is:inline src="/assets/catalog-skeleton.js"></script>
+  <script is:inline src="/assets/catalog.js"></script>
+  <script is:inline src="/assets/page.js"></script>
+
+</body>
+</html>

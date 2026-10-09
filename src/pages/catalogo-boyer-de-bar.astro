@@ -1,0 +1,22 @@
+---
+import CatalogLayout from '../layouts/CatalogLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { sanityClient } from '../sanity/client';
+import { mapProduct, PRODUCT_FIELDS } from '../sanity/mappers';
+
+const [raw, maison] = await Promise.all([
+  sanityClient.fetch(`*[_type == "product" && maison->slug.current == "boyer-de-bar"] | order(sortOrder asc) { ${PRODUCT_FIELDS} }`),
+  sanityClient.fetch(`*[_type == "maison" && slug.current == "boyer-de-bar"][0] { "logoUrl": logoImage.asset->url, intro }`),
+]);
+const products = raw.map(mapProduct);
+const logoSrc = maison?.logoUrl ?? '/assets/partners/boyer-de-bar.png';
+---
+
+<CatalogLayout
+  title="Boyer-De Bar - Gustoso"
+  description="Il catalogo completo di Boyer-De Bar: Pinot Noir della Côte des Bar, cuvée vibranti, ossatura solida. Selezionati da Gustoso."
+  brandmarkSrc={logoSrc}
+  brandmarkAlt="Boyer-De Bar"
+>
+  {products.map((p) => <ProductCard product={p} />)}
+</CatalogLayout>

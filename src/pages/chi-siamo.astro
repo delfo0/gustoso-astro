@@ -1,0 +1,145 @@
+---
+import InnerLayout from '../layouts/InnerLayout.astro';
+import InnerHero from '../components/InnerHero.astro';
+---
+
+<InnerLayout
+  title="Chi siamo - Gustoso"
+  description="Distributore di prodotti enogastronomici di alta qualità con sede in Lombardia. Selezioniamo personalmente 6 maison artigiane in Italia e in Francia."
+  page="chi-siamo"
+  ogImage="/assets/chi-siamo-hero.jpg"
+>
+
+  <InnerHero
+    image="/assets/chi-siamo-hero.jpg"
+    imageAlt="Chef impiatta con cura in cucina — Gustoso"
+    eyebrow="Chi siamo"
+    title="Passione per<br/><em>l'eccellenza</em>."
+  />
+
+  <section class="editorial">
+
+    <div class="panel panel--cream">
+      <div class="panel-pad" style="padding-bottom: 36px;">
+        <div class="panel-inner">
+          <div class="split-2" style="align-items: stretch;">
+            <div>
+              <div class="eyebrow reveal" style="color: var(--terracotta);">Origini</div>
+              <h2 class="reveal" style="--rd:80ms; font-family: var(--display); font-size: clamp(36px, 4.6vw, 64px); font-weight: 600; letter-spacing: -0.022em; line-height: 1.02; margin-top: 22px; max-width: 22ch;">
+                Nati dalla <em style="color: var(--terracotta); font-style: italic;">curiosità</em> per il buono.
+              </h2>
+              <div class="prose reveal" style="--rd:200ms; margin-top: 36px;">
+                <p>Gustoso nasce da un&rsquo;idea semplice: il cibo e il vino di qualità raccontano storie che vale la pena conoscere. Non siamo un grande distributore: siamo un piccolo team che ha scelto di costruire un catalogo piccolo e ben scelto, con i prodotti che ci convincono davvero.</p>
+                <p>Ogni prodotto è stato <em>scelto di persona</em>. Abbiamo visitato le cantine della Linguadoca, percorso le colline della Champagne, assaggiato accanto ai produttori. Il nostro catalogo nasce così, dalle relazioni che costruiamo nel tempo.</p>
+                <p>Lavoriamo con ristoranti, hotel e con chi cerca a tavola e nel calice qualcosa di buono e autentico.</p>
+              </div>
+            </div>
+            <div class="reveal" style="--rd:320ms; display: flex; flex-direction: column; gap: 16px;">
+              <div class="img-slot has-image" style="background-image: url('/assets/origini-sommelier.jpg'); border-radius: var(--r-md); width: 100%; aspect-ratio: auto; flex: 1; min-height: 0;"></div>
+              <div class="img-slot has-image" style="background-image: url('/assets/origini-vigneto.jpg'); border-radius: var(--r-md); width: 100%; aspect-ratio: auto; flex: 1; min-height: 0;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="specs chi-siamo-stats reveal" style="grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; align-items: stretch; width: 100%;">
+            <div class="spec" style="border-right: 1px solid var(--line); padding: 64px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+              <div class="spec-n">120+</div>
+              <div class="spec-l" style="margin: 0;">Etichette in catalogo</div>
+            </div>
+            <div class="spec" style="border-right: 1px solid var(--line); padding: 64px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+              <div class="spec-n">6</div>
+              <div class="spec-l" style="margin: 0;">Maison partner</div>
+            </div>
+            <div class="spec" style="padding: 64px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; justify-content: center;">
+              <div class="spec-n">2</div>
+              <div class="spec-l" style="margin: 0;">Paesi d&rsquo;origine</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal">
+            <div class="eyebrow" style="color: var(--terracotta);">I nostri valori</div>
+            <h2 class="title">Cosa ci <em>guida</em><br/>ogni giorno.</h2>
+          </div>
+          <div class="cards-3 reveal-stagger">
+            <article class="feat-card">
+              <div class="n">N&deg;01</div>
+              <h3>Qualità senza compromessi</h3>
+              <p>Quello che mettiamo in catalogo lo abbiamo provato di persona. Assaggiamo, valutiamo, andiamo a vedere da dove arriva. Solo se ci convince davvero diventa parte della nostra selezione.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;02</div>
+              <h3>Territorio e radici</h3>
+              <p>Crediamo nel <em>genius loci</em> — quella forza che appartiene a un luogo e si esprime in ciò che produce. Preferiamo il piccolo produttore con un vigneto specifico al grande gruppo. L&rsquo;origine conta.</p>
+            </article>
+            <article class="feat-card">
+              <div class="n">N&deg;03</div>
+              <h3>Relazione vera</h3>
+              <p>Quello che ci piace del nostro lavoro sono le persone. Le maison che ci accolgono in cantina, i ristoratori che ci raccontano il loro menù, le enoteche che scelgono di portare i nostri vini sui loro scaffali. Ognuno di loro fa parte della nostra storia.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--ink">
+      <div class="panel-pad panel-pad--sm">
+        <div class="panel-inner--narrow">
+          <div class="pullquote pullquote--ondark reveal" style="max-width: 88ch;">
+            <blockquote>&laquo;Scegliamo prodotti che hanno una <em>storia</em> da raccontare, e li portiamo nelle cantine e nelle cucine di chi sa apprezzarli.&raquo;</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad">
+        <div class="panel-inner">
+          <div class="panel-head reveal" style="margin-bottom: 56px;">
+            <div class="eyebrow" style="color: var(--terracotta);">Le maison</div>
+            <h2 class="title">Le maison del nostro <em>catalogo</em>.</h2>
+            <p class="lede">Sei produttori francesi tra Champagne, Linguadoca e Côte des Bar. Ognuno con il proprio carattere, il proprio territorio, il proprio modo di interpretare il vino.</p>
+          </div>
+          <div class="maison-strip reveal">
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/aubert.jpg');"></div>
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/marcoult.jpg');"></div>
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/baron.jpg');"></div>
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/odyssee.jpg');"></div>
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/dumangin.jpg');"></div>
+            <div class="img-slot has-image" style="background-image: url('/assets/maison/boyer-de-bar.jpg');"></div>
+          </div>
+          <div class="reveal" style="margin-top: 56px; display: flex; gap: 18px; flex-wrap: wrap;">
+            <a class="cta cta--filled" href="#vini-overlay" data-open-vini>Esplora le maison <span class="arrow">&rarr;</span></a>
+            <a class="cta cta--ghost-dark" href="/contatti">Parla con noi <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel--cream">
+      <div class="panel-pad cta-panel" style="position: relative; z-index: 20;">
+        <div class="cta-panel-inner" style="position: relative; z-index: 20;">
+          <div class="eyebrow" style="color: var(--terracotta);">Inizia la conversazione</div>
+          <h2 class="cta-panel-title">Vuoi <em>conoscerci</em>?</h2>
+          <p class="cta-panel-lede">Scrivici per esplorare il catalogo o per qualunque domanda sui nostri prodotti. Una persona del nostro team ti risponderà.</p>
+          <div class="cta-panel-actions">
+            <a href="/contatti" class="cta cta--filled">Contattaci <span class="arrow">&rarr;</span></a>
+            <a href="/b2b" class="cta cta--ghost-dark">Per i professionisti <span class="arrow">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</InnerLayout>
